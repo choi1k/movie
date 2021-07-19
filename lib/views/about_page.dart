@@ -22,6 +22,12 @@ class AboutPage extends StatelessWidget{
                 'GetX is an extra-light and powerful solution for Flutter. It combines high performance state management, intelligent dependency injection, and route management in a quick and practical way.',
               ),
               ),
+              FlatButton(
+                onPressed: (){
+                  Get.back();
+                },
+                child: Text('Go Home')
+              )
             ],
         )
       )
