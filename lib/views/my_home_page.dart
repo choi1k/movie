@@ -7,7 +7,7 @@ class MyHomePage extends StatelessWidget {
 
   final MyHomePageController controller = Get.put(MyHomePageController());
 
-  MyHomePage({this.title});
+  MyHomePage({required this.title});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,15 +21,17 @@ class MyHomePage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '0',
+            Obx(() => Text(
+              // '0',
+              '${controller.count.value}',
               style: Theme.of(context).textTheme.headline4,
-            ),
+            ),)
+
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: controller.increment,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
