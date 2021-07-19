@@ -30,8 +30,8 @@ class MyHomePage extends StatelessWidget {
             ),
             FlatButton(
                 onPressed:(){
-                  // Get.to(AboutPage());          // navigate
-                  Get.off(AboutPage());      //이전 페이지로 못 돌아감 replace
+                  Get.to(AboutPage());          // navigate
+                  // Get.off(AboutPage());      //이전 페이지로 못 돌아감 replace
                 },
                 child: Text('About GetX')
             ),
@@ -42,6 +42,18 @@ class MyHomePage extends StatelessWidget {
                 );
               },
               child: Text('Show Snackbar')
+            ),
+            FlatButton(
+              onPressed: (){
+                Get.defaultDialog(
+                    title: 'GetX Alert',
+                    middleText: 'Simple GetX alert',
+                    textConfirm: 'Okay',
+                    confirmTextColor: Colors.amberAccent,
+                    textCancel: 'Cancel'
+                );
+              },
+              child: Text('Show AlertDialog')
             )
 
           ],
