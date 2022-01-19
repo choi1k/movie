@@ -15,56 +15,21 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+            // Text(
+            //   'You have pushed the button this many times:',
+            // ),
             Obx(() => Text(
               // '0',
               '${controller.count.value}',
               style: Theme.of(context).textTheme.headline4,
             ),
             ),
-            FlatButton(
-                onPressed:(){
-                  Get.to(AboutPage());          // navigate
-                  // Get.off(AboutPage());      //이전 페이지로 못 돌아감 replace
-                },
-                child: Text('About GetX')
-            ),
-            FlatButton(
-              onPressed:(){
-                Get.snackbar('GetX Snackbar', 'Yay! Awesome GetX Snackbar'
-                , snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.amberAccent
-                );
-              },
-              child: Text('Show Snackbar')
-            ),
-            FlatButton(
-              onPressed: (){
-                Get.defaultDialog(
-                    title: 'GetX Alert',
-                    middleText: 'Simple GetX alert',
-                    textConfirm: 'Okay',
-                    confirmTextColor: Colors.amberAccent,
-                    textCancel: 'Cancel'
-                );
-              },
-              child: Text('Show AlertDialog')
-            )
-
           ],
-
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.increment,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+
     );
   }
 }

@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title:'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:MyHomePage(title: 'Flutter Demo Home Page'),
+      home:MyHomePage(title: '오늘의 영화정보'),
     );
     // return MaterialApp(
     //   title: 'Flutter Demo',
