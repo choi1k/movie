@@ -21,30 +21,24 @@ class movieController extends GetxController {
   @override
   // TODO: implement onDelete
   InternalFinalCallback<void> get onDelete => super.onDelete;
-  void fetchMovie() async {
-    var movies = await RemoteServices.fetchMovie();
-    if (movies != null){
-      // movieList.value = movies;
-      print("Movies: ${movies.boxOfficeResult!.boxofficeType}");
-      // print("${dailyList?.value?.first.movieNm}");
-      //movies.boxOfficeResult!.dailyBoxOfficeList
-      // dailyList.value = movies.boxOfficeResult?.dailyBoxOfficeList;
-    }
-  }
+  // void fetchMovie() async {
+  //   var movies = await RemoteServices.fetchMovie();
+  //   if (movies != null){
+  //     // movieList.value = movies;
+  //     print("Movies: ${movies.boxOfficeResult!.boxofficeType}");
+  //     // print("${dailyList?.value?.first.movieNm}");
+  //     //movies.boxOfficeResult!.dailyBoxOfficeList
+  //     // dailyList.value = movies.boxOfficeResult?.dailyBoxOfficeList;
+  //   }
+  // }
   void fetchMovie2(String date) async {
     var movies = await RemoteServices.fetchMovie2(date);
     if (movies != null){
       movieList.value = movies;
+      dailyList.value = movies.boxOfficeResult!.dailyBoxOfficeList!;
       print("Movies: ${movies.boxOfficeResult!.boxofficeType}");
       print("Movies: ${movies.boxOfficeResult!.dailyBoxOfficeList?.first.movieNm}");
       print("Movies: $movieList");
-      // print("${dailyList?.length}");
-
-
-
-
-      //movies.boxOfficeResult!.dailyBoxOfficeList
-      // dailyList.value = movies.boxOfficeResult?.dailyBoxOfficeList;
     }
   }
 
