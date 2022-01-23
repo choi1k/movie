@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:MyHomePage(title: '오늘의 영화정보'),
+      home:MyHomePage(title: 'Movie Info'),
     );
     // return MaterialApp(
     //   title: 'Flutter Demo',
