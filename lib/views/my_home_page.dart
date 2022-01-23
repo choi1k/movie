@@ -16,46 +16,49 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            // const DrawerHeader(
+            //   decoration: BoxDecoration(
+            //     color: Colors.blue,
+            //   ),
+            //   child: Text('Drawer Header'),
+            // ),
+            ListTile(
+              title: const Text('main'),
+              onTap: () {
+                Get.to(MyHomePage(title: 'main',));
+              },
+            ),
+            ListTile(
+              title: const Text('about'),
+              onTap: () {
+                Get.to(AboutPage());
+              },
+            ),
+          ],
+        )
+      ),
 
-      body: ListView.builder(
+      body:
+
+      ListView.builder(
         itemCount: controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?.length,
         itemBuilder: (BuildContext context, int index) {
-          return Text('${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[index].movieNm}');
+          return Material(
+           elevation: 10,
+           child: Container(
+             child: ListTile(
+               title: Text('${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[index].movieNm}'),
+               subtitle: Text('${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[index].movieCd}'),
+               leading: Text('${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[index].rank}'),
+             )
+           )
+          );
+            // Text('${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[index].movieNm}');
         },
       )
-
-      // body:Column(
-      //   children:[
-      //     Column(
-      //       children: [
-      //         // Text($(controller.movieList.value.boxOfficeResult.dailyBoxOfficeList[0].movieNm));
-      //     Text(
-      //             // '0',
-      //             // '${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?.length.toString()}',
-      //             '${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[0].movieNm}',
-      //
-      //             style: Theme.of(context).textTheme.headline6,
-      //           ),
-      //       ]
-      //     )
-      //   ]
-      // )
-      // body: Column(
-      //     mainAxisAlignment: MainAxisAlignment.start,
-      //     children: <Widget>[
-      //       // Text(
-      //       //   'You have pushed the button this many times:',
-      //       // ),
-      //       Obx(() => Text(
-      //         // '0',
-      //         // '${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?.length.toString()}',
-      //         '${controller.movieList.value.boxOfficeResult?.dailyBoxOfficeList?[0].movieNm}',
-      //
-      //         style: Theme.of(context).textTheme.headline6,
-      //       ),
-      //       ),
-      //     ],
-      //   ),
 
     );
   }
